@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Сватбена покана — Мария & Александър | 06.06.2027</title>
+  <meta name="description" content="Сватбена покана и програма за сватбата на Мария и Александър — 06.06.2027 г., Арт Комплекс Анел, Созопол.">
+  <meta name="theme-color" content="#fcf9f5">
+  <meta name="author" content="Мария & Александър">
+
+  <!-- OpenGraph / Social Media Cards (Viber, WhatsApp, Facebook, iMessage) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Сватбена покана — Мария & Александър">
+  <meta property="og:description" content="Каним ви да споделим нашия специален сватбен ден на 6-ти юни 2027 г. в Арт Комплекс Анел, Созопол!">
+  <meta property="og:image" content="assets/images/place.png">
+  <meta property="og:image:alt" content="Мария & Александър Сватба">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Сватбена покана — Мария & Александър">
+  <meta name="twitter:description" content="Каним ви да споделим нашия специален сватбен ден на 6-ти юни 2027 г. в Арт Комплекс Анел, Созопол!">
+  <meta name="twitter:image" content="assets/images/place.png">
+
+  <!-- Google Fonts with full Cyrillic support -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Marcellus&family=Montserrat:wght@300;400;500;600;700&display=swap&subset=cyrillic,cyrillic-ext,latin" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Audio Background Player -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="assets/audio/wedding-song.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Interactive 3D Letter Envelope with Wax Seal Overlay -->
+  <div id="introOverlay" class="intro-overlay">
+    <div class="envelope-scene">
+      <div id="envelopeWrapper" class="envelope-wrapper" role="button" aria-label="Отвори сватбената покана" tabindex="0">
+        
+        <!-- Ambient realistic soft drop shadow -->
+        <div class="envelope-shadow"></div>
+
+        <div class="envelope">
+          <!-- Interior Backing & Liner -->
+          <div class="envelope-inner-back">
+            <div class="envelope-liner"></div>
+          </div>
+
+          <!-- The Invitation Letter inside -->
+          <div class="invitation-card">
+            <div class="card-border">
+              <div class="card-ornament">✦ ✦ ✦</div>
+              <p class="card-pretitle">Сватбена покана</p>
+              <h2 class="card-names">Мария & Александър</h2>
+              <div class="card-gold-line"></div>
+              <p class="card-date">06 . 06 . 2027</p>
+              <p class="card-venue">Арт Комплекс Анел, Созопол</p>
+            </div>
+          </div>
+
+          <!-- Solid Front Pocket (Forms the bottom pouch) -->
+          <div class="envelope-front-pocket">
+            <div class="pocket-base"></div>
+            <div class="pocket-triangle-left"></div>
+            <div class="pocket-triangle-right"></div>
+            <div class="pocket-triangle-bottom"></div>
+          </div>
+
+          <!-- Top Foldable Flap with 3D Flip -->
+          <div class="envelope-top-flap">
+            <div class="flap-triangle"></div>
+          </div>
+
+          <!-- Wax Seal Stamp located in the center -->
+          <div id="waxSealBtn" class="wax-seal" title="Натиснете печата за отваряне">
+            <div class="wax-seal-body">
+              <div class="wax-seal-border">
+                <div class="wax-monogram">
+                  <span class="seal-initials">M & A</span>
+                  <span class="seal-branch">❦</span>
+                </div>
+              </div>
+            </div>
+            <div class="seal-glow"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Action Prompt Hint -->
+      <div class="envelope-prompt">
+        <p class="prompt-badge">
+          <span class="prompt-sparkle">✨</span> Натиснете печата, за да отворите поканата
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Audio Control Button -->
+  <button id="audioToggleBtn" class="audio-control-btn" aria-label="Управление на музиката" title="Музикален плейър">
+    <div class="sound-wave">
+      <span class="bar bar-1"></span>
+      <span class="bar bar-2"></span>
+      <span class="bar bar-3"></span>
+      <span class="bar bar-4"></span>
+    </div>
+    <span class="audio-label">Музика</span>
+  </button>
+
+  <!-- Main Content Wrapper -->
+  <div class="page-wrapper">
+
+    <!-- Floating Floral Background Elements -->
+    <div class="floating-decor decor-top-left" aria-hidden="true">
+      <img src="assets/images/pink-flower.png" alt="" class="parallax-flower flower-pink">
+    </div>
+    <div class="floating-decor decor-top-right" aria-hidden="true">
+      <img src="assets/images/white-flower.png" alt="" class="parallax-flower flower-white">
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero-section text-center">
+      <div class="container">
+        <p class="hero-subtitle fade-in">Поканени сте на сватбата на</p>
+        <h1 class="hero-title fade-in delay-1">Мария & Александър</h1>
+        <div class="hero-date-badge fade-in delay-2">
+          <span class="date-number">06</span>
+          <span class="date-dot">•</span>
+          <span class="date-number">06</span>
+          <span class="date-dot">•</span>
+          <span class="date-number">2027</span>
+        </div>
+        <div class="hero-divider fade-in delay-3">
+          <img src="assets/images/border-divider.png" alt="Декоративна рамка" class="divider-img">
+        </div>
+      </div>
+    </header>
+
+    <!-- Invitation Message Section -->
+    <section class="section message-section text-center">
+      <div class="container message-box card-glass reveal">
+        <div class="floral-accent-top">
+          <img src="assets/images/pink-flower.png" alt="" class="accent-flower">
+        </div>
+        <h2 class="section-title">Скъпи роднини и приятели</h2>
+        <div class="message-body">
+          <p>С радост и вълнение ви каним на предстоящата ни сватба.</p>
+          <p>Искаме да споделим този толкова важен и съкровен момент с <strong>най-близките и скъпи</strong> за нас хора.</p>
+          <p class="highlight-text">Вашето присъствие ще значи много за нас!</p>
+        </div>
+        <div class="wedding-quick-info">
+          <div class="quick-info-item">
+            <span class="quick-icon">📅</span>
+            <strong>6-ти юни 2027 г.</strong>
+          </div>
+          <div class="quick-info-item">
+            <span class="quick-icon">📍</span>
+            <strong>Арт Комплекс Анел, гр. Созопол</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Program / Timeline Section -->
+    <section class="section program-section" id="program">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-badge">График на събитието</span>
+          <h2 class="section-title">Сватбена Програма</h2>
+          <p class="section-subtitle">06 . 06 . 2027 (Неделя)</p>
+          <div class="sub-divider">
+            <img src="assets/images/border-divider.png" alt="" class="divider-img-sm">
+          </div>
+        </div>
+
+        <div class="timeline">
+          <!-- Timeline Item 1 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-badge">
+              <span class="timeline-time">16:00</span>
+            </div>
+            <div class="timeline-card card-glass">
+              <div class="timeline-icon">🥂</div>
+              <h3 class="timeline-title">Събиране на гостите</h3>
+              <p class="timeline-desc">Welcome drink с лека музика, освежаващи напитки и време за приятни разговори и снимки.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-badge">
+              <span class="timeline-time">17:00</span>
+            </div>
+            <div class="timeline-card card-glass">
+              <div class="timeline-icon">💍</div>
+              <h3 class="timeline-title">Сватбена церемония</h3>
+              <p class="timeline-desc">Тържествен изнесен ритуал с красив морски изглед, кратка продължителност и много емоция.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 3 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-badge">
+              <span class="timeline-time">18:00</span>
+            </div>
+            <div class="timeline-card card-glass">
+              <div class="timeline-icon">🍽️</div>
+              <h3 class="timeline-title">Вечеря и първи танц</h3>
+              <p class="timeline-desc">Сервиране на празнична вечеря и най-специалният момент на вечерта — първият сватбен танц на младоженците.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 4 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-badge">
+              <span class="timeline-time">20:00</span>
+            </div>
+            <div class="timeline-card card-glass">
+              <div class="timeline-icon">🎂</div>
+              <h3 class="timeline-title">Десерт, музика и танци</h3>
+              <p class="timeline-desc">Разрязване на сватбената торта, празнични наздравици, много музика, танци и забавления до зори!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location & Accommodation Section -->
+    <section class="section location-section" id="location">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-badge">Място на тържеството</span>
+          <h2 class="section-title">Локация & Настаняване</h2>
+          <div class="sub-divider">
+            <img src="assets/images/border-divider.png" alt="" class="divider-img-sm">
+          </div>
+        </div>
+
+        <div class="location-card card-glass reveal">
+          <div class="location-image-wrapper">
+            <img src="assets/images/place.png" alt="Арт Комплекс Анел, Созопол" class="location-img">
+            <div class="location-overlay-tag">Арт Комплекс Анел, Созопол</div>
+          </div>
+
+          <div class="location-content">
+            <h3 class="location-name">Арт Комплекс Анел — Созопол</h3>
+            <p class="location-address">📍 ул. „Апостол Войвода“ № 1, м. Буджака, 8130 Созопол</p>
+            
+            <div class="hotel-stay-notice">
+              <div class="notice-icon">🏨</div>
+              <div class="notice-text">
+                <strong>Осигурено настаняване за гостите:</strong>
+                <p>За ваше максимално удобство и спокойствие покриваме <strong>две нощувки с включени закуски</strong> в комплекс Анел – на <strong>05.06 (събота)</strong> и <strong>06.06 (неделя)</strong> за всички наши скъпи гости.</p>
+              </div>
+            </div>
+
+            <!-- Action Buttons for Navigation and Calendar -->
+            <div class="location-actions">
+              <a href="https://maps.google.com/?q=Art+Complex+Anel+Sozopol" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Google Maps
+              </a>
+              <a href="https://waze.com/ul?q=Art+Complex+Anel+Sozopol" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm1 14.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm2-6.5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                Waze Навигация
+              </a>
+              <button id="addToCalendarBtn" class="btn btn-gold">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Запази в календара
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dresscode Section -->
+    <section class="section dresscode-section" id="dresscode">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-badge">Препоръчителен стил</span>
+          <h2 class="section-title">Дрескод & Цветова палитра</h2>
+          <div class="sub-divider">
+            <img src="assets/images/border-divider.png" alt="" class="divider-img-sm">
+          </div>
+          <p class="section-desc max-w-600">
+            Бихме били изключително щастливи, ако се включите в хармонията на нашия празник, като изберете официални тоалети в нюанси от нашата сватбена палитра:
+          </p>
+        </div>
+
+        <div class="color-palette-grid reveal">
+          <div class="color-swatch-card">
+            <div class="swatch-circle" style="background-color: #692319;"></div>
+            <span class="swatch-title">Бордо</span>
+            <span class="swatch-hex">Burgundy</span>
+          </div>
+          <div class="color-swatch-card">
+            <div class="swatch-circle" style="background-color: #6E8062;"></div>
+            <span class="swatch-title">Маслинено</span>
+            <span class="swatch-hex">Olive Green</span>
+          </div>
+          <div class="color-swatch-card">
+            <div class="swatch-circle" style="background-color: #9AAA77;"></div>
+            <span class="swatch-title">Шалфей</span>
+            <span class="swatch-hex">Sage Green</span>
+          </div>
+          <div class="color-swatch-card">
+            <div class="swatch-circle" style="background-color: #D4C6AB;"></div>
+            <span class="swatch-title">Шампанско</span>
+            <span class="swatch-hex">Warm Sand</span>
+          </div>
+          <div class="color-swatch-card">
+            <div class="swatch-circle" style="background-color: #1A1A1A;"></div>
+            <span class="swatch-title">Класическо черно</span>
+            <span class="swatch-hex">Black Tie</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wishes & Gifts Section -->
+    <section class="section wishes-section" id="wishes">
+      <div class="container">
+        <div class="wishes-card card-glass text-center reveal">
+          <div class="wishes-icon-wrap">
+            <span class="wishes-main-icon">💌</span>
+          </div>
+          <h2 class="section-title">Пожелания & Подаръци</h2>
+          <div class="sub-divider">
+            <img src="assets/images/border-divider.png" alt="" class="divider-img-sm">
+          </div>
+          <div class="wishes-text">
+            <p class="lead-quote">„Вашето присъствие и споделените усмивки са най-големият и ценен подарък за нас!“</p>
+            <p>Ако все пак желаете да ни зарадвате допълнително, бихме оценили вашия жест под формата на <strong>паричен подарък в плик</strong>.</p>
+            <p class="wishes-note">Той ще ни помогне да поставим началото на нашето семейно приключение и сватбено пътешествие!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section class="section faq-section" id="faq">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-badge">Полезна информация</span>
+          <h2 class="section-title">Често задавани въпроси</h2>
+          <div class="sub-divider">
+            <img src="assets/images/border-divider.png" alt="" class="divider-img-sm">
+          </div>
+        </div>
+
+        <div class="faq-accordion max-w-750 reveal">
+          <!-- FAQ 1 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Мога ли да доведа допълнителен гост?</span>
+              <span class="faq-arrow">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Ако желаете да доведете придружител или допълнителен гост, молим да се свържете предварително с нас, за да проверим и потвърдим капацитета на местата.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Има ли осигурено настаняване?</span>
+              <span class="faq-arrow">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Да! За ваше пълно удобство сме осигурили и покрили 2 нощувки със закуски в комплекс Анел за датите 05.06 и 06.06. При настаняване на рецепция просто споменете, че сте гости на сватбата.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Ще има ли деца на сватбата?</span>
+              <span class="faq-arrow">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Разбира се! Осигурили сме професионален детски аниматор и обособен детски кът, за да могат най-малките гости да се забавляват щуро и безопасно.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Какви цветя предпочитате?</span>
+              <span class="faq-arrow">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Тъй като пътуваме след сватбата, бихме предпочели да избегнете рязаните букети. Вашата искрена прегръдка и топло пожелание са напълно достатъчни!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Countdown Timer Section -->
+    <section class="section countdown-section text-center" id="countdown">
+      <div class="container">
+        <div class="countdown-box card-glass reveal">
+          <span class="countdown-heading-pre">До големия ден</span>
+          <h2 class="countdown-title">Остават само</h2>
+          
+          <div id="countdownTimer" class="countdown-grid">
+            <div class="timer-card">
+              <span id="countDays" class="timer-number">00</span>
+              <span class="timer-label">Дни</span>
+            </div>
+            <div class="timer-card">
+              <span id="countHours" class="timer-number">00</span>
+              <span class="timer-label">Часа</span>
+            </div>
+            <div class="timer-card">
+              <span id="countMinutes" class="timer-number">00</span>
+              <span class="timer-label">Минути</span>
+            </div>
+            <div class="timer-card">
+              <span id="countSeconds" class="timer-number">00</span>
+              <span class="timer-label">Секунди</span>
+            </div>
+          </div>
+
+          <p class="countdown-bottom-quote">Нямаме търпение да споделим този най-специален ден с вас!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section text-center">
+      <div class="footer-floral-bottom">
+        <img src="assets/images/flowers-bottom.png" alt="Цветна декорация" class="footer-flowers-img">
+      </div>
+      <div class="container footer-content">
+        <h2 class="footer-names">Мария & Александър</h2>
+        <p class="footer-date">06 . 06 . 2027 г. • гр. Созопол</p>
+        <p class="footer-love">С обич и благодарност! ❤️</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Main JavaScript Bundle -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

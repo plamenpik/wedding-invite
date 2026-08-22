@@ -1,0 +1,1406 @@
+/* ==========================================================================
+   WEDDING INVITATION — DESIGN SYSTEM & STYLESHEET
+   Aesthetic: Romantic, High-End Botanical, Elegant Lotus Theme
+   ========================================================================== */
+
+:root {
+  /* Colors */
+  --color-bg: #FAF8F5;
+  --color-bg-alt: #F3EFEA;
+  --color-card-bg: rgba(255, 255, 255, 0.82);
+  --color-card-border: rgba(220, 210, 195, 0.5);
+  
+  --color-primary: #4A4D38;      /* Deep Olive / Forest */
+  --color-secondary: #748067;    /* Muted Sage */
+  --color-accent-sage: #9AAA77;   /* Soft Eucalyptus */
+  --color-accent-rose: #D99890;   /* Blush Rose */
+  --color-accent-gold: #C09A5B;   /* Subtle Champagne Gold */
+  --color-dark: #22241D;          /* Deep Charcoal */
+  --color-muted: #6B7062;         /* Muted olive gray */
+  --color-white: #FFFFFF;
+
+  /* Typography */
+  --font-serif-display: "Oranienbaum", "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-serif-sub: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Arsenal", "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Shadows */
+  --shadow-soft: 0 10px 30px rgba(74, 77, 56, 0.07);
+  --shadow-hover: 0 16px 40px rgba(74, 77, 56, 0.13);
+  --shadow-card: 0 8px 32px rgba(80, 70, 55, 0.06);
+
+  /* Spacing */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  
+  --transition-smooth: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Base & Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-dark);
+  font-family: var(--font-sans);
+  line-height: 1.65;
+  overflow-x: hidden;
+  position: relative;
+  background-image: radial-gradient(circle at 10% 20%, rgba(217, 152, 144, 0.04) 0%, transparent 40%),
+                    radial-gradient(circle at 90% 80%, rgba(154, 170, 119, 0.06) 0%, transparent 40%);
+  background-attachment: fixed;
+}
+
+/* Typography Defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif-display);
+  font-weight: normal;
+  color: var(--color-primary);
+  line-height: 1.25;
+}
+
+p {
+  color: var(--color-muted);
+  font-size: 1.05rem;
+}
+
+strong {
+  color: var(--color-dark);
+  font-weight: 700;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.max-w-600 {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.max-w-750 {
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==========================================================================
+   INTERACTIVE 3D ENVELOPE WITH WAX SEAL OVERLAY
+   ========================================================================== */
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: radial-gradient(circle at 50% 45%, #FAF7F2 0%, #ECE4D6 70%, #E0D6C4 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.9s cubic-bezier(0.4, 0, 0.2, 1), transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.intro-overlay.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.08);
+  pointer-events: none;
+}
+
+.envelope-scene {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  perspective: 1400px;
+  width: 100%;
+  max-width: 480px;
+}
+
+.envelope-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  height: 280px;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.envelope-wrapper:hover {
+  transform: translateY(-5px);
+}
+
+/* Realistic Soft Floor Shadow */
+.envelope-shadow {
+  position: absolute;
+  bottom: -28px;
+  left: 6%;
+  width: 88%;
+  height: 38px;
+  background: radial-gradient(ellipse at center, rgba(60, 50, 35, 0.32) 0%, rgba(60, 50, 35, 0.1) 45%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(4px);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.envelope-wrapper:hover .envelope-shadow {
+  transform: scale(1.06);
+  opacity: 0.9;
+}
+
+/* The Envelope Container (Crisp Luxury White) */
+.envelope {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+  border: 1px solid rgba(210, 195, 175, 0.5);
+  border-radius: 8px;
+  box-shadow: 0 20px 50px rgba(60, 50, 35, 0.16),
+              0 2px 10px rgba(60, 50, 35, 0.06);
+  transform-style: preserve-3d;
+}
+
+/* Interior Back & Golden Damask Liner */
+.envelope-inner-back {
+  position: absolute;
+  inset: 0;
+  background-color: #F8F5EE;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.envelope-liner {
+  position: absolute;
+  inset: 8px;
+  background: linear-gradient(135deg, rgba(154, 170, 119, 0.2) 0%, rgba(200, 165, 105, 0.18) 100%),
+              radial-gradient(circle at 50% 50%, rgba(200, 165, 105, 0.15) 0%, transparent 65%);
+  border: 1px solid rgba(192, 154, 91, 0.4);
+  border-radius: 5px;
+}
+
+/* The Invitation Letter Inside */
+.invitation-card {
+  position: absolute;
+  top: 10px;
+  left: 16px;
+  right: 16px;
+  height: 255px;
+  background: #FFFFFF;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.2rem 1rem;
+  transition: transform 0.9s cubic-bezier(0.34, 1.35, 0.64, 1), box-shadow 0.9s ease;
+}
+
+.card-border {
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid #D8C39D;
+  border-radius: 4px;
+  padding: 1.2rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #FFFFFF 0%, #FAF8F5 100%);
+  position: relative;
+}
+
+.card-border::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px dashed rgba(216, 195, 157, 0.55);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.card-ornament {
+  color: #C09A5B;
+  font-size: 0.85rem;
+  letter-spacing: 5px;
+  margin-bottom: 0.2rem;
+}
+
+.card-pretitle {
+  font-family: var(--font-serif-sub);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #927546;
+  margin-bottom: 0.25rem;
+}
+
+.card-names {
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.5rem, 5vw, 1.95rem);
+  color: #383A2A;
+  line-height: 1.15;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+}
+
+.card-gold-line {
+  width: 60px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, #C09A5B, transparent);
+  margin: 0.2rem auto 0.4rem;
+}
+
+.card-date {
+  font-family: var(--font-serif-sub);
+  font-size: 1.15rem;
+  letter-spacing: 3px;
+  color: #4A4D38;
+  font-weight: 700;
+}
+
+.card-venue {
+  font-family: "Arsenal", "Montserrat", sans-serif;
+  font-size: 0.82rem;
+  color: #747A6B;
+  margin-top: 0.25rem;
+}
+
+/* Front Envelope Pocket (Solid Crisp White) */
+.envelope-front-pocket {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.pocket-base {
+  position: absolute;
+  inset: 0;
+  background: #FFFFFF;
+  border-radius: 8px;
+}
+
+.pocket-triangle-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F5F3EE 100%);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  filter: drop-shadow(4px 0 8px rgba(60, 50, 35, 0.08));
+}
+
+.pocket-triangle-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  background: linear-gradient(-135deg, #FFFFFF 0%, #F2EFE8 100%);
+  clip-path: polygon(100% 0, 0 50%, 100% 100%);
+  filter: drop-shadow(-4px 0 8px rgba(60, 50, 35, 0.08));
+}
+
+.pocket-triangle-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 56%;
+  background: linear-gradient(0deg, #FFFFFF 0%, #F6F4EE 100%);
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  filter: drop-shadow(0 -5px 12px rgba(60, 50, 35, 0.11));
+}
+
+/* Top Foldable Flap with 3D Flip (Crisp White) */
+.envelope-top-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 53%;
+  z-index: 4;
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), z-index 0.3s ease;
+}
+
+.flap-triangle {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F1EEE6 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  filter: drop-shadow(0 6px 16px rgba(60, 50, 35, 0.18));
+}
+
+/* Photorealistic Luxury Botanical Green Wax Seal */
+.wax-seal {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 76px;
+  height: 76px;
+  z-index: 5;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
+}
+
+.wax-seal:hover {
+  transform: translate(-50%, -50%) scale(1.12);
+}
+
+.wax-seal:active {
+  transform: translate(-50%, -50%) scale(0.96);
+}
+
+.wax-seal-body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 35% 30%, #4D6B4F 0%, #314B33 55%, #1B2F1D 100%);
+  border-radius: 48% 52% 51% 49% / 52% 47% 53% 48%;
+  box-shadow: 0 8px 24px rgba(27, 47, 29, 0.5),
+              inset 2px 2px 4px rgba(255, 255, 255, 0.4),
+              inset -2px -3px 6px rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.wax-seal-border {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 220, 130, 0.55);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5),
+              0 1px 2px rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, rgba(55, 85, 58, 0.6) 0%, rgba(25, 45, 27, 0.9) 100%);
+}
+
+.wax-monogram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #F8DFBE;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8), -1px -1px 1px rgba(255, 255, 255, 0.2);
+  width: 100%;
+}
+
+.seal-initials {
+  font-family: var(--font-serif-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.seal-branch {
+  font-size: 0.72rem;
+  color: #E2B887;
+  margin-top: 2px;
+  line-height: 1;
+}
+
+.seal-glow {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(154, 170, 119, 0.6);
+  animation: sealGlowPulse 2.2s infinite ease-out;
+  pointer-events: none;
+}
+
+@keyframes sealGlowPulse {
+  0% { transform: scale(0.92); opacity: 0.85; }
+  100% { transform: scale(1.45); opacity: 0; }
+}
+
+/* Prompt Hint Below Envelope */
+.envelope-prompt {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.prompt-badge {
+  font-family: "Arsenal", "Montserrat", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-style: normal;
+  color: #383A2A;
+  letter-spacing: 0.3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0.6rem 1.5rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(210, 195, 175, 0.7);
+  box-shadow: 0 6px 20px rgba(60, 50, 35, 0.09);
+  backdrop-filter: blur(8px);
+  animation: gentleBounce 2.5s infinite ease-in-out;
+}
+
+.prompt-sparkle {
+  font-size: 1.1rem;
+}
+
+@keyframes gentleBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* ==========================================================================
+   ACTIVE OPENING ANIMATION STATE
+   ========================================================================== */
+.envelope-wrapper.open .envelope-top-flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.envelope-wrapper.open .wax-seal {
+  transform: translate(-50%, -180%) scale(0.8);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.envelope-wrapper.open .invitation-card {
+  transform: translateY(-145px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(60, 50, 35, 0.25);
+  z-index: 10;
+}
+
+@media (max-width: 480px) {
+  .envelope-wrapper {
+    max-width: 330px;
+    height: 220px;
+  }
+  
+  .invitation-card {
+    top: 8px;
+    left: 12px;
+    right: 12px;
+    height: 205px;
+  }
+  
+  .card-names {
+    font-size: 1.4rem;
+  }
+
+  .card-date {
+    font-size: 1rem;
+  }
+  
+  .envelope-wrapper.open .invitation-card {
+    transform: translateY(-110px) scale(1.01);
+  }
+  
+  .wax-seal {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .wax-seal-border {
+    width: 42px;
+    height: 42px;
+  }
+  
+  .seal-initials {
+    font-size: 0.88rem;
+  }
+
+  .prompt-badge {
+    font-size: 0.92rem;
+    padding: 0.45rem 1rem;
+  }
+}
+
+
+/* ==========================================================================
+   FLOATING AUDIO CONTROL BUTTON
+   ========================================================================== */
+.audio-control-btn {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(220, 210, 195, 0.8);
+  border-radius: var(--radius-full);
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(8px);
+  transition: var(--transition-smooth);
+}
+
+.audio-control-btn:hover {
+  transform: scale(1.05);
+  background: #FFF;
+  box-shadow: var(--shadow-hover);
+}
+
+.sound-wave {
+  display: flex;
+  align-items: flex-end;
+  gap: 2.5px;
+  height: 16px;
+}
+
+.sound-wave .bar {
+  width: 3px;
+  background: var(--color-primary);
+  border-radius: 2px;
+  height: 4px;
+  transition: height 0.2s ease;
+}
+
+.audio-control-btn.playing .bar-1 { animation: wave 1.1s ease-in-out infinite alternate; }
+.audio-control-btn.playing .bar-2 { animation: wave 0.8s ease-in-out 0.2s infinite alternate; }
+.audio-control-btn.playing .bar-3 { animation: wave 1.3s ease-in-out 0.4s infinite alternate; }
+.audio-control-btn.playing .bar-4 { animation: wave 0.9s ease-in-out 0.1s infinite alternate; }
+
+@keyframes wave {
+  0% { height: 3px; }
+  100% { height: 16px; }
+}
+
+.audio-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   BACKGROUND FLOATING DECORATIONS
+   ========================================================================== */
+.floating-decor {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.decor-top-left {
+  top: 2rem;
+  left: -2rem;
+  width: clamp(140px, 20vw, 240px);
+}
+
+.decor-top-right {
+  top: 12rem;
+  right: -2rem;
+  width: clamp(140px, 22vw, 260px);
+}
+
+.parallax-flower {
+  width: 100%;
+  height: auto;
+  opacity: 0.85;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.05));
+  animation: floatFlower 8s ease-in-out infinite alternate;
+}
+
+.flower-white {
+  animation-duration: 10s;
+  animation-delay: -3s;
+}
+
+@keyframes floatFlower {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(18px) rotate(4deg); }
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero-section {
+  position: relative;
+  z-index: 1;
+  padding: 6.5rem 1.5rem 3rem;
+}
+
+.hero-subtitle {
+  font-family: var(--font-serif-sub);
+  font-size: clamp(1.25rem, 3.5vw, 1.6rem);
+  font-style: italic;
+  color: var(--color-muted);
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.hero-title {
+  font-size: clamp(2.6rem, 8vw, 4.2rem);
+  color: var(--color-primary);
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.5px;
+}
+
+.hero-date-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--color-card-border);
+  padding: 0.4rem 1.4rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.date-number {
+  font-family: var(--font-serif-sub);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  letter-spacing: 2px;
+}
+
+.date-dot {
+  color: var(--color-accent-gold);
+  font-size: 0.8rem;
+}
+
+.hero-divider {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.divider-img {
+  width: 100%;
+  height: auto;
+  opacity: 0.8;
+}
+
+.sub-divider {
+  max-width: 240px;
+  margin: 0.5rem auto 1.5rem;
+}
+
+.divider-img-sm {
+  width: 100%;
+  height: auto;
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   CARDS & SECTIONS SHARED STYLES
+   ========================================================================== */
+.section {
+  position: relative;
+  z-index: 1;
+  padding: 3rem 0;
+}
+
+.section-header {
+  margin-bottom: 2.5rem;
+}
+
+.section-badge {
+  display: inline-block;
+  font-family: var(--font-serif-sub);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-accent-gold);
+  margin-bottom: 0.4rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  color: var(--color-primary);
+  margin-bottom: 0.4rem;
+}
+
+.section-subtitle {
+  font-size: 1.15rem;
+  color: var(--color-muted);
+}
+
+.card-glass {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ==========================================================================
+   MESSAGE / INVITATION SECTION
+   ========================================================================== */
+.message-box {
+  padding: 3.5rem 2.2rem 3rem;
+  position: relative;
+}
+
+.floral-accent-top {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+}
+
+.accent-flower {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
+}
+
+.message-body {
+  margin: 1.5rem 0 2rem;
+}
+
+.message-body p {
+  margin-bottom: 1rem;
+  font-size: 1.15rem;
+}
+
+.highlight-text {
+  font-family: var(--font-serif-sub);
+  font-size: 1.35rem !important;
+  font-style: italic;
+  color: var(--color-primary);
+  margin-top: 1.5rem;
+}
+
+.wedding-quick-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--color-card-border);
+}
+
+.quick-info-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.05rem;
+  color: var(--color-primary);
+}
+
+.quick-icon {
+  font-size: 1.2rem;
+}
+
+/* ==========================================================================
+   TIMELINE / PROGRAM SECTION
+   ========================================================================== */
+.timeline {
+  position: relative;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 36px;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(154, 170, 119, 0.2) 0%, var(--color-accent-sage) 50%, rgba(154, 170, 119, 0.2) 100%);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-left: 88px;
+}
+
+.timeline-badge {
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 72px;
+  height: 38px;
+  background: var(--color-primary);
+  color: #FFF;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif-sub);
+  font-size: 1.15rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(74, 77, 56, 0.25);
+  z-index: 2;
+}
+
+.timeline-card {
+  padding: 1.6rem 1.8rem;
+  transition: var(--transition-smooth);
+}
+
+.timeline-card:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.timeline-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.timeline-title {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 0.4rem;
+}
+
+.timeline-desc {
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--color-muted);
+}
+
+/* ==========================================================================
+   LOCATION & ACCOMMODATION
+   ========================================================================== */
+.location-card {
+  overflow: hidden;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.location-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+}
+
+.location-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.location-card:hover .location-img {
+  transform: scale(1.03);
+}
+
+.location-overlay-tag {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  background: rgba(34, 36, 29, 0.75);
+  color: #FFF;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  backdrop-filter: blur(4px);
+}
+
+.location-content {
+  padding: 2.2rem 2rem;
+}
+
+.location-name {
+  font-size: 1.85rem;
+  color: var(--color-primary);
+  margin-bottom: 0.3rem;
+}
+
+.location-address {
+  font-size: 1.05rem;
+  color: var(--color-muted);
+  margin-bottom: 1.5rem;
+}
+
+.hotel-stay-notice {
+  background: rgba(154, 170, 119, 0.12);
+  border-left: 4px solid var(--color-accent-sage);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 1.2rem 1.4rem;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.notice-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.notice-text strong {
+  display: block;
+  color: var(--color-primary);
+  margin-bottom: 0.3rem;
+}
+
+.notice-text p {
+  font-size: 0.98rem;
+  color: var(--color-dark);
+}
+
+.location-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #FFF;
+}
+.btn-primary:hover {
+  background: var(--color-dark);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.btn-outline:hover {
+  background: var(--color-primary);
+  color: #FFF;
+  transform: translateY(-2px);
+}
+
+.btn-gold {
+  background: var(--color-accent-gold);
+  color: #FFF;
+}
+.btn-gold:hover {
+  background: #aa8546;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   DRESSCODE & PALETTE
+   ========================================================================== */
+.color-palette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1.2rem;
+  max-width: 780px;
+  margin: 2rem auto 0;
+}
+
+.color-swatch-card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-md);
+  padding: 1.4rem 0.8rem;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: var(--transition-smooth);
+}
+
+.color-swatch-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  background: #FFF;
+}
+
+.swatch-circle {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  margin: 0 auto 0.8rem;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  border: 3px solid #FFF;
+}
+
+.swatch-title {
+  display: block;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-primary);
+  margin-bottom: 0.15rem;
+}
+
+.swatch-hex {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   WISHES & GIFTS
+   ========================================================================== */
+.wishes-card {
+  padding: 3.5rem 2.2rem;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.wishes-icon-wrap {
+  margin-bottom: 0.8rem;
+}
+
+.wishes-main-icon {
+  font-size: 2.4rem;
+}
+
+.wishes-text {
+  margin-top: 1.5rem;
+}
+
+.lead-quote {
+  font-family: var(--font-serif-sub);
+  font-size: 1.35rem;
+  font-style: italic;
+  color: var(--color-primary);
+  margin-bottom: 1.2rem;
+}
+
+.wishes-note {
+  font-size: 0.98rem;
+  margin-top: 1rem;
+}
+
+/* ==========================================================================
+   FAQ ACCORDION
+   ========================================================================== */
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.faq-item {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: var(--transition-smooth);
+}
+
+.faq-question {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  background: transparent;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  font-family: var(--font-serif-display);
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.faq-arrow {
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--color-accent-gold);
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-arrow {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0 1.5rem;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 200px;
+  padding: 0 1.5rem 1.4rem;
+}
+
+.faq-answer p {
+  font-size: 1rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   COUNTDOWN TIMER
+   ========================================================================== */
+.countdown-box {
+  padding: 3.5rem 2rem;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.countdown-heading-pre {
+  font-family: var(--font-serif-sub);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-accent-gold);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.countdown-title {
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  margin-bottom: 2rem;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 580px;
+  margin: 0 auto 2rem;
+}
+
+.timer-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-md);
+  padding: 1.2rem 0.5rem;
+  box-shadow: 0 4px 16px rgba(74, 77, 56, 0.08);
+}
+
+.timer-number {
+  display: block;
+  font-family: var(--font-serif-display);
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.1;
+}
+
+.timer-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-muted);
+}
+
+.countdown-bottom-quote {
+  font-family: var(--font-serif-sub);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer-section {
+  position: relative;
+  padding: 4rem 1.5rem 3.5rem;
+  background: linear-gradient(180deg, transparent 0%, rgba(154, 170, 119, 0.12) 100%);
+}
+
+.footer-floral-bottom {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.footer-flowers-img {
+  width: 100%;
+  height: auto;
+  opacity: 0.9;
+}
+
+.footer-names {
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  color: var(--color-primary);
+  margin-bottom: 0.3rem;
+}
+
+.footer-date {
+  font-family: var(--font-serif-sub);
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  color: var(--color-muted);
+  margin-bottom: 0.8rem;
+}
+
+.footer-love {
+  font-size: 1.05rem;
+  color: var(--color-accent-rose);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   ANIMATIONS & SCROLL REVEAL
+   ========================================================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.delay-1 { animation-delay: 0.15s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.45s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   RESPONSIVENESS (Mobile & Tablet)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 5rem 1rem 2rem;
+  }
+  
+  .message-box {
+    padding: 2.8rem 1.4rem 2.2rem;
+  }
+  
+  .timeline::before {
+    left: 28px;
+  }
+  
+  .timeline-item {
+    padding-left: 72px;
+  }
+  
+  .timeline-badge {
+    width: 60px;
+    height: 34px;
+    font-size: 1rem;
+  }
+  
+  .timeline-card {
+    padding: 1.2rem 1.2rem;
+  }
+
+  .location-image-wrapper {
+    height: 220px;
+  }
+
+  .location-content {
+    padding: 1.5rem 1.2rem;
+  }
+
+  .location-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .countdown-grid {
+    gap: 0.5rem;
+  }
+
+  .timer-card {
+    padding: 0.8rem 0.3rem;
+  }
+
+  .timer-number {
+    font-size: 1.85rem;
+  }
+
+  .audio-control-btn {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .audio-label {
+    display: none;
+  }
+}
