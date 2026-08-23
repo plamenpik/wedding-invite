@@ -2,6 +2,7 @@
  * Wedding Invitation Website — Interactive Logic
  * Couple: Maria & Alexander
  * Date: 06.06.2027
+ * Theme: Amelia Botanical Luxury
  */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -11,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const waxSealBtn = document.getElementById("waxSealBtn");
   const bgMusic = document.getElementById("bgMusic");
   const audioToggleBtn = document.getElementById("audioToggleBtn");
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
   const addToCalendarBtn = document.getElementById("addToCalendarBtn");
 
   let isAudioPlaying = false;
@@ -21,18 +23,18 @@ document.addEventListener("DOMContentLoaded", () => {
   // --------------------------------------------------------------------------
   const playAudio = () => {
     if (!bgMusic) return;
-    bgMusic.volume = 0.1;
+    bgMusic.volume = 0.05;
     const playPromise = bgMusic.play();
     if (playPromise !== undefined) {
       playPromise
         .then(() => {
           isAudioPlaying = true;
-          audioToggleBtn.classList.add("playing");
+          if (audioToggleBtn) audioToggleBtn.classList.add("playing");
         })
         .catch(() => {
           // Autoplay blocked without user gesture
           isAudioPlaying = false;
-          audioToggleBtn.classList.remove("playing");
+          if (audioToggleBtn) audioToggleBtn.classList.remove("playing");
         });
     }
   };
@@ -41,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!bgMusic) return;
     bgMusic.pause();
     isAudioPlaying = false;
-    audioToggleBtn.classList.remove("playing");
+    if (audioToggleBtn) audioToggleBtn.classList.remove("playing");
   };
 
   const openEnvelope = () => {
@@ -58,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         introOverlay.remove();
       }, 1000);
-    }, 1300);
+    }, 1200);
   };
 
   if (waxSealBtn) {
@@ -90,7 +92,27 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // --------------------------------------------------------------------------
-  // 2. Countdown Timer
+  // 2. Scroll to Top Button
+  // --------------------------------------------------------------------------
+  if (scrollTopBtn) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 400) {
+        scrollTopBtn.classList.add("visible");
+      } else {
+        scrollTopBtn.classList.remove("visible");
+      }
+    });
+
+    scrollTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  }
+
+  // --------------------------------------------------------------------------
+  // 3. Countdown Timer (Target Date: 06.06.2027)
   // --------------------------------------------------------------------------
   const targetWeddingDate = new Date("2027-06-06T16:00:00+03:00").getTime();
 
@@ -126,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setInterval(updateCountdown, 1000);
 
   // --------------------------------------------------------------------------
-  // 3. FAQ Accordion
+  // 4. FAQ Accordion
   // --------------------------------------------------------------------------
   const faqItems = document.querySelectorAll(".faq-item");
 
@@ -152,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // --------------------------------------------------------------------------
-  // 4. Add to Calendar (iCal / Google Calendar)
+  // 5. Add to Calendar (iCal / Google Calendar)
   // --------------------------------------------------------------------------
   if (addToCalendarBtn) {
     addToCalendarBtn.addEventListener("click", () => {
@@ -195,7 +217,6 @@ document.addEventListener("DOMContentLoaded", () => {
       link.click();
       document.body.removeChild(link);
 
-      // Also give choice or note
       setTimeout(() => {
         const openGoogle = confirm("Събитието беше изтеглено за Apple / Outlook Calendar! Желаете ли да го отворите и в Google Calendar?");
         if (openGoogle) {
@@ -206,7 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // --------------------------------------------------------------------------
-  // 5. Scroll Reveal Animations (Intersection Observer)
+  // 7. Scroll Reveal Animations (Intersection Observer)
   // --------------------------------------------------------------------------
   const revealElements = document.querySelectorAll(".reveal");
 
@@ -222,14 +243,14 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       {
         root: null,
-        threshold: 0.15,
-        rootMargin: "0px 0px -40px 0px"
+        threshold: 0.1,
+        rootMargin: "0px 0px -30px 0px"
       }
     );
 
     revealElements.forEach((el) => revealObserver.observe(el));
   } else {
-    // Fallback for browsers without IntersectionObserver
+    // Fallback
     revealElements.forEach((el) => el.classList.add("active"));
   }
 });
