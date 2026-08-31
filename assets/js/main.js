@@ -1,11 +1,17 @@
-/**
- * Wedding Invitation Website — Interactive Logic
- * Couple: Maria & Alexander
- * Date: 06.06.2027
- * Theme: Amelia Botanical Luxury
- */
+// Disable browser automatic scroll restoration on refresh (F5)
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+window.scrollTo(0, 0);
+window.addEventListener("beforeunload", () => {
+  window.scrollTo(0, 0);
+});
 
 document.addEventListener("DOMContentLoaded", () => {
+  window.scrollTo(0, 0);
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+
   // Elements
   const introOverlay = document.getElementById("introOverlay");
   const envelopeWrapper = document.getElementById("envelopeWrapper");
@@ -50,17 +56,24 @@ document.addEventListener("DOMContentLoaded", () => {
     if (isEnvelopeOpened || !envelopeWrapper || !introOverlay) return;
     isEnvelopeOpened = true;
 
+    // Reset scroll to top before opening animation
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+
     // Step 1: Open flap and slide letter up
     envelopeWrapper.classList.add("open");
     playAudio();
 
     // Step 2: Fade out overlay smoothly after revealing the letter
     setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      document.body.classList.remove("no-scroll");
       introOverlay.classList.add("fade-out");
       setTimeout(() => {
         introOverlay.remove();
       }, 1000);
-    }, 5000);
+    }, 4500);
   };
 
   if (waxSealBtn) {

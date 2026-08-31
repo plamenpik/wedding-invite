@@ -89,6 +89,11 @@ body {
   position: relative;
 }
 
+body.no-scroll {
+  overflow: hidden !important;
+  height: 100vh;
+}
+
 /* Container */
 .container {
   width: 100%;
@@ -2030,4 +2035,361 @@ a:hover {
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   20. Mobile & Tablet Responsiveness Fine-Tuning
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  .container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .section {
+    padding: 55px 0;
+  }
+
+  .section-header {
+    margin-bottom: 32px;
+  }
+
+  .floating-decor {
+    opacity: 0.45;
+    pointer-events: none;
+  }
+
+  .decor-top-left { width: 140px; left: -40px; top: -20px; }
+  .decor-top-right { width: 140px; right: -35px; top: -15px; }
+  .decor-mid-left { width: 130px; left: -45px; }
+  .decor-mid-right { width: 130px; right: -45px; }
+
+  /* Hero Section */
+  .hero-section {
+    padding-top: 60px;
+    padding-bottom: 50px;
+  }
+
+  .hero-frame-container {
+    padding: 24px 12px;
+  }
+
+  .hero-frame-container::before {
+    width: 92%;
+    height: 75%;
+  }
+
+  .hero-title {
+    font-size: clamp(2.4rem, 11vw, 4.2rem);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .hero-date-badge {
+    font-size: 1.2rem;
+    gap: 8px;
+    padding: 5px 16px;
+    letter-spacing: 2px;
+  }
+
+  /* Card Glass */
+  .card-glass {
+    padding: 34px 20px;
+    border-radius: 20px;
+  }
+
+  .message-body {
+    font-size: 15px;
+    line-height: 1.8;
+    margin: 18px 0;
+  }
+
+  .highlight-text {
+    font-size: 17px;
+  }
+
+  .wedding-quick-info {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 24px;
+    padding-top: 18px;
+  }
+
+  .quick-info-item {
+    width: 100%;
+    justify-content: center;
+    font-size: 13px;
+    padding: 10px 14px;
+    text-align: center;
+  }
+
+  /* Timeline */
+  .timeline-container {
+    padding: 10px 0;
+  }
+
+  .timeline-container::before {
+    left: 18px;
+  }
+
+  .timeline-marker {
+    left: 18px;
+    top: 22px;
+    width: 15px;
+    height: 15px;
+  }
+
+  .timeline-card {
+    margin-left: 42px;
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  .timeline-header-row {
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+
+  .timeline-icon-img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .timeline-time {
+    font-size: 17px;
+  }
+
+  .timeline-title {
+    font-size: 17px;
+    margin-bottom: 6px;
+  }
+
+  .timeline-desc {
+    font-size: 13.5px;
+    line-height: 1.65;
+  }
+
+  /* Location Card */
+  .location-image-wrapper {
+    height: 230px;
+  }
+
+  .location-overlay-tag {
+    font-size: 12px;
+    padding: 6px 12px;
+    bottom: 12px;
+    left: 12px;
+  }
+
+  .location-content {
+    padding: 28px 18px;
+  }
+
+  .location-name {
+    font-size: 21px;
+  }
+
+  .location-address {
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
+
+  .hotel-stay-notice {
+    padding: 16px 14px;
+    gap: 12px;
+    margin-bottom: 22px;
+    border-radius: var(--radius-sm);
+  }
+
+  .hotel-stay-notice .notice-icon {
+    font-size: 20px;
+  }
+
+  .location-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .location-actions .btn {
+    width: 100%;
+    padding: 13px 20px;
+    font-size: 14px;
+  }
+
+  /* Venue Atmosphere & Feature Cards */
+  .venue-cards-grid,
+  .dual-feature-grid {
+    gap: 22px;
+    margin-top: 28px;
+  }
+
+  .venue-card,
+  .feature-box {
+    padding: 32px 18px;
+    border-radius: 20px;
+  }
+
+  .venue-card-img-wrap {
+    height: 190px;
+    margin-bottom: 18px;
+    border-radius: 12px;
+  }
+
+  .venue-card-title,
+  .feature-box .section-title {
+    font-size: 1.7rem;
+  }
+
+  .venue-card-desc,
+  .feature-box .section-desc {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* FAQ Accordion */
+  .faq-accordion {
+    gap: 10px;
+  }
+
+  .faq-question {
+    padding: 15px 16px;
+    font-size: 15.5px;
+    gap: 10px;
+  }
+
+  .faq-answer {
+    padding: 0 16px;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .faq-item.active .faq-answer {
+    padding-bottom: 16px;
+  }
+
+  /* Countdown Section */
+  .countdown-box {
+    padding: 34px 16px;
+    border-radius: 20px;
+  }
+
+  .countdown-grid {
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .timer-card {
+    padding: 12px 4px;
+    border-radius: 10px;
+  }
+
+  .timer-number {
+    font-size: clamp(1.4rem, 6.5vw, 2.2rem);
+    margin-bottom: 4px;
+  }
+
+  .timer-label {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  /* Floating Controls (Safe for Mobile thumbs) */
+  .audio-control-btn {
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    left: 14px;
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .scroll-top-btn {
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    right: 14px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Extra Small Screens (iPhone SE, Galaxy A, 320px - 380px) */
+@media (max-width: 400px) {
+  .envelope-wrapper {
+    width: calc(100vw - 32px);
+    height: 205px;
+  }
+
+  .envelope-wrapper.open .invitation-card {
+    transform: translateY(-90px) scale(1.01);
+  }
+
+  .invitation-card {
+    height: 175px;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    padding: 10px;
+  }
+
+  .card-border {
+    padding: 8px 10px;
+  }
+
+  .card-names {
+    font-size: 1.45rem;
+  }
+
+  .card-date {
+    font-size: 11px;
+  }
+
+  .card-venue {
+    font-size: 9.5px;
+  }
+
+  .wax-seal {
+    width: 56px;
+    height: 56px;
+  }
+
+  .wax-seal-border {
+    width: 42px;
+    height: 42px;
+  }
+
+  .seal-initials {
+    font-size: 11px;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-date-badge {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+
+  .venue-card-img-wrap {
+    height: 165px;
+  }
+
+  .countdown-grid {
+    gap: 5px;
+  }
+
+  .timer-card {
+    padding: 10px 2px;
+  }
+
+  .timer-number {
+    font-size: 1.3rem;
+  }
+
+  .timer-label {
+    font-size: 9px;
+    letter-spacing: 0.5px;
+  }
 }
