@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         introOverlay.remove();
       }, 1000);
-    }, 1200);
+    }, 5000);
   };
 
   if (waxSealBtn) {
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // --------------------------------------------------------------------------
   // 3. Countdown Timer (Target Date: 06.06.2027)
   // --------------------------------------------------------------------------
-  const targetWeddingDate = new Date("2027-06-06T16:00:00+03:00").getTime();
+  const targetWeddingDate = new Date("2026-12-12T17:00:00+03:00").getTime();
 
   const elDays = document.getElementById("countDays");
   const elHours = document.getElementById("countHours");
@@ -178,14 +178,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // --------------------------------------------------------------------------
   if (addToCalendarBtn) {
     addToCalendarBtn.addEventListener("click", () => {
-      const eventTitle = "Сватбата на Мария & Александър";
-      const eventLocation = "Арт Комплекс Анел, Созопол, България";
-      const eventDescription = "Празнуваме сватбения ден на Мария и Александър! Начало на събирането: 16:00 ч.";
-      const startDate = "20270606T130000Z"; // 16:00 EEST (UTC+3)
-      const endDate = "20270607T010000Z";   // 04:00 EEST
+      const eventTitle = "Сватбата на Ивелина & Пламен";
+      const eventLocation = "Хотел Астор Гардън - к.к. Св. Св. Константин и Елена";
+      const eventDescription = "Празнуваме сватбения ден на Ивелина и Пламен! Начало на събирането: 17:15 ч.";
+      const startDate = "20261212T171500+0300"; // 16:00 EEST (UTC+3)
+      const endDate = "20261213T010000Z";   // 04:00 EEST
 
       // Direct Google Calendar Link
-      const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
+      const googleCalendarUrl = `https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=Njk2ZmxwcGZzMHFnNTJzZjNiYWVxc3NxN3UgcGxhbWVuX3Bpa0BhYnYuYmc&tmsrc=plamen_pik%40abv.bg(
         eventTitle
       )}&dates=${startDate}/${endDate}&details=${encodeURIComponent(
         eventDescription
@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const blob = new Blob([icsData], { type: "text/calendar;charset=utf-8" });
       const link = document.createElement("a");
       link.href = window.URL.createObjectURL(blob);
-      link.setAttribute("download", "svatba-maria-i-aleksandar.ics");
+      link.setAttribute("download", "svatba-ivelina-i-plamen.ics");
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
