@@ -1791,7 +1791,7 @@ a:hover {
 }
 
 .faq-item.active .faq-answer {
-  max-height: 300px;
+  max-height: 400px;
   padding-bottom: 20px;
 }
 
