@@ -1790,8 +1790,12 @@ a:hover {
   line-height: 1.8;
 }
 
+.faq-answer p {
+  margin: 0;
+}
+
 .faq-item.active .faq-answer {
-  max-height: 400px;
+  max-height: 1000px;
   padding-bottom: 20px;
 }
 
@@ -2357,6 +2361,7 @@ a:hover {
   }
 
   .faq-item.active .faq-answer {
+    max-height: 1000px;
     padding-bottom: 16px;
   }
 
